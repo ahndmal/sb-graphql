@@ -6,12 +6,14 @@ import com.anma.gr.sbgraphql.repo.BookRepo;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
+@CrossOrigin(origins = "*")
 public class TestController {
 
     private final BookRepo bookRepo;
@@ -20,16 +22,19 @@ public class TestController {
         this.bookRepo = bookRepo;
     }
 
+    @CrossOrigin(origins = "*")
     @QueryMapping
     public Author author(@Argument Integer id) {
         return new Author(id, "some author");
     }
 
+    @CrossOrigin(origins = "*")
     @QueryMapping
     public Book book(@Argument Integer id) throws FileNotFoundException {
         return bookRepo.findById(id).orElseThrow(() -> new FileNotFoundException("Not found"));
     }
 
+    @CrossOrigin(origins = "*")
     @QueryMapping
     public List<Book> books(@Argument Integer count) {
         return bookRepo.findAll().stream().filter(book -> book.getId() <= count).collect(Collectors.toList());
