@@ -1,0 +1,17 @@
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health,metrics,info
+
+spring:
+  graphql:
+    schema:
+      printer:
+        enabled: false
+      locations: classpath:graphql/
+      file-extensions: .graphqls, .gqls
+    path: "/graphql"
+    graphiql:
+      enabled: true
+      path: "/graphiql"

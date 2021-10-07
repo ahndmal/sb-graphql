@@ -1,0 +1,55 @@
+
+type Query {
+    author(id: Int): Author
+    book(id: Int): Book
+#    artifactRepositories : [ArtifactRepository]
+#    artifactRepository(id : ID!) : ArtifactRepository
+    authors(count: Int): [Author]
+}
+
+type Author {
+    id: ID
+    name: String
+}
+
+type Book {
+    title: String
+}
+
+#type Mutation {
+#    writePost(title: String!, text: String!, category: String) : Post!
+#}
+
+#type ArtifactRepository {
+#    id: ID!
+#    name: String!
+#    url: String!
+#    snapshotsEnabled: Boolean
+#}
+#
+#type Project {
+#    slug: ID!
+#    name: String!
+#    repositoryUrl: String!
+#    status: ProjectStatus!
+#    releases: [Release]
+#}
+#
+#type Release {
+#    version: String!
+#    status: ReleaseStatus!
+#    current: Boolean
+#}
+#
+#enum ProjectStatus {
+#    ACTIVE
+#    COMMUNITY
+#    INCUBATING
+#    ATTIC
+#}
+#
+#enum ReleaseStatus {
+#    GENERAL_AVAILABILITY
+#    MILESTONE
+#    SNAPSHOT
+#}
