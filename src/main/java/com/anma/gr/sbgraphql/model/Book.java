@@ -1,7 +1,15 @@
 package com.anma.gr.sbgraphql.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Book {
 
+    @Id
+    private Integer id;
+    @ManyToOne
     private Author author;
     private String title;
 
@@ -10,7 +18,8 @@ public class Book {
         this.title = title;
     }
 
-    public Book(String title) {
+    public Book(Integer id, String title) {
+        this.id = id;
         this.title = title;
     }
 
@@ -34,5 +43,13 @@ public class Book {
 
     public Integer getAuthorId() {
         return author.getId();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

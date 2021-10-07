@@ -5,14 +5,16 @@ type Query {
 #    artifactRepositories : [ArtifactRepository]
 #    artifactRepository(id : ID!) : ArtifactRepository
     authors(count: Int): [Author]
+    books(count: Int): [Book]
 }
 
 type Author {
-    id: ID
+    id: Int
     name: String
 }
 
 type Book {
+    id: Int
     title: String
 }
 

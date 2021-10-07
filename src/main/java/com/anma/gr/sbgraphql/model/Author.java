@@ -1,5 +1,11 @@
 package com.anma.gr.sbgraphql.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
+
+@Entity
 public class Author {
 
     public Author(Integer id, String name) {
@@ -9,8 +15,11 @@ public class Author {
 
     public Author() {}
 
+    @Id
     private Integer id;
     private String name;
+    @OneToMany
+    private List<Book> books;
 
     public String getName() {
         return name;
@@ -26,5 +35,13 @@ public class Author {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 }
