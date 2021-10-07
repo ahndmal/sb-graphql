@@ -1,9 +1,9 @@
 package com.anma.gr.sbgraphql.services;
 
-import com.anma.gr.sbgraphql.model.BookResponse;
+import com.anma.gr.sbgraphql.model.BooksResponse;
 
 public interface GBooksService {
 
-    public BookResponse[] getBooks(String volume);
-    BookResponse getBook(String id);
+    public BooksResponse getBooks(String volume);
+    BooksResponse getBook(String id);
 }

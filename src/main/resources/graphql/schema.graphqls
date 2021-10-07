@@ -6,7 +6,13 @@ type Query {
 #    artifactRepository(id : ID!) : ArtifactRepository
     authors(count: Int): [Author]
     books(count: Int): [Book]
+    googleBooks(count: Int, volume: String): BooksResponse
 }
+type BooksResponse {
+    kind: String
+    totalItems: Int
+}
+
 
 type Author {
     id: Int

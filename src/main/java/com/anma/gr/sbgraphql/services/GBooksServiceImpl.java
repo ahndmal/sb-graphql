@@ -1,6 +1,5 @@
 package com.anma.gr.sbgraphql.services;
 
-import com.anma.gr.sbgraphql.model.BookResponse;
 import com.anma.gr.sbgraphql.model.BooksResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,16 +29,16 @@ public class GBooksServiceImpl implements GBooksService {
     }
 
     @Override
-    public BookResponse[] getBooks(String volume) {
+    public BooksResponse getBooks(String volume) {
 
         BooksResponse books = new RestTemplate().getForObject(REST_URL + "?q="+ volume +"?limit=20", BooksResponse.class);
         LOG.info(">>> Books " + books.getKind());
 
-        return books.getItems();
+        return books;
     }
 
     @Override
-    public BookResponse getBook(String id) {
+    public BooksResponse getBook(String id) {
         return null;
     }
 }

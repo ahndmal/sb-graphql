@@ -2,7 +2,9 @@ package com.anma.gr.sbgraphql.controllers;
 
 import com.anma.gr.sbgraphql.model.Author;
 import com.anma.gr.sbgraphql.model.Book;
+import com.anma.gr.sbgraphql.model.BooksResponse;
 import com.anma.gr.sbgraphql.repo.BookRepo;
+import com.anma.gr.sbgraphql.services.GBooksService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
@@ -14,12 +16,14 @@ import java.util.stream.Collectors;
 
 @Controller
 @CrossOrigin(origins = "*")
-public class TestController {
+public class BooksController {
 
     private final BookRepo bookRepo;
+    private final GBooksService gBooksService;
 
-    public TestController(BookRepo bookRepo) {
+    public BooksController(BookRepo bookRepo, GBooksService gBooksService) {
         this.bookRepo = bookRepo;
+        this.gBooksService = gBooksService;
     }
 
     @CrossOrigin(origins = "*")
@@ -38,6 +42,11 @@ public class TestController {
     @QueryMapping
     public List<Book> books(@Argument Integer count) {
         return bookRepo.findAll().stream().filter(book -> book.getId() <= count).collect(Collectors.toList());
+    }
+
+    @QueryMapping
+    public BooksResponse googleBooks(@Argument int count, @Argument String volume) {
+        return gBooksService.getBooks("Harry");
     }
 
 //    @SchemaMapping
