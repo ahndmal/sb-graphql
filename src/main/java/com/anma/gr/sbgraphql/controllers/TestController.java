@@ -32,7 +32,7 @@ public class TestController {
 
     @QueryMapping
     public List<Book> books(@Argument Integer count) {
-        return bookRepo.findAll().stream().filter(book -> book.getId() < 10).collect(Collectors.toList());
+        return bookRepo.findAll().stream().filter(book -> book.getId() <= count).collect(Collectors.toList());
     }
 
 //    @SchemaMapping

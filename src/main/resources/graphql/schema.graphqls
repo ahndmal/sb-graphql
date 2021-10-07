@@ -16,6 +16,7 @@ type Author {
 type Book {
     id: Int
     title: String
+    author: Author
 }
 
 #type Mutation {
