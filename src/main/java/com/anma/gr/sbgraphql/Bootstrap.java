@@ -31,7 +31,7 @@ public class Bootstrap implements CommandLineRunner {
     public void run(String... args) throws Exception {
         createAuthors();
         loadData();
-        gBooksService.getBooks("quilting");
+//        gBooksService.getBooks("quilting");
     }
 
     private void createAuthors() {
@@ -62,5 +62,6 @@ public class Bootstrap implements CommandLineRunner {
         bookRepo.save(starWars);
         LOGGER.info(">>> created " + bookRepo.count() + " books");
 
+//        LOGGER.info(String.valueOf(gBooksService.getBooks("quirling", 40, 1).getItems().length) + " books retrieved");
     }
 }

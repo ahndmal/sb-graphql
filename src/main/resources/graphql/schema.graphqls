@@ -5,7 +5,7 @@ type Query {
 #    artifactRepository(id : ID!) : ArtifactRepository
     authors(count: Int): [Author]
     books(count: Int): [Book]
-    googleBooks(count: Int, volume: String): BooksResponse
+    googleBooks(count: Int, volume: String, start: Int): BooksResponse
 }
 type BooksResponse {
     kind: String

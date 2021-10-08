@@ -29,10 +29,12 @@ public class GBooksServiceImpl implements GBooksService {
     }
 
     @Override
-    public BooksResponse getBooks(String volume) {
+    public BooksResponse getBooks(String volume, int maxResults, int startIndex) {
 
-        BooksResponse books = new RestTemplate().getForObject(REST_URL + "?q="+ volume +"?limit=20", BooksResponse.class);
-        LOG.info(">>> Books " + books.getKind());
+        String request = String.format("%s?q=%s&startIndex=%s&maxResults=%s", REST_URL, volume, startIndex, maxResults);
+        LOG.info(">>> Request: " + request);
+
+        BooksResponse books = new RestTemplate().getForObject(request, BooksResponse.class);
 
         return books;
     }

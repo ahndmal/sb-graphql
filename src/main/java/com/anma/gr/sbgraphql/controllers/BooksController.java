@@ -45,8 +45,8 @@ public class BooksController {
     }
 
     @QueryMapping
-    public BooksResponse googleBooks(@Argument int count, @Argument String volume) {
-        return gBooksService.getBooks("Harry");
+    public BooksResponse googleBooks(@Argument int count, @Argument String volume, @Argument int start) {
+        return gBooksService.getBooks(volume ,count, start);
     }
 
 //    @SchemaMapping
