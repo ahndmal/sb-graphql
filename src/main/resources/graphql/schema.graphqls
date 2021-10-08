@@ -1,4 +1,3 @@
-
 type Query {
     author(id: Int): Author
     book(id: Int): Book
@@ -11,8 +10,25 @@ type Query {
 type BooksResponse {
     kind: String
     totalItems: Int
+    items: [BookResponse]
+}
+type BookResponse {
+    kind: String
+    id: String
+    etag: String
+    selfLink: String
+    volumeInfo: VolumeInfo
 }
 
+type VolumeInfo {
+    title:String
+    authors: [String]
+    publisher:String
+    publishedDate:String
+    description:String
+    language: String
+    pageCount: Int
+}
 
 type Author {
     id: Int

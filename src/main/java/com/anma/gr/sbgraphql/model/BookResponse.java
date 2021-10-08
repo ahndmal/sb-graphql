@@ -9,12 +9,14 @@ public class BookResponse {
     private String id;
     private String etag;
     private String selfLink;
+    private VolumeInfo volumeInfo;
 
-    public BookResponse(String kind, String id, String etag, String selfLink) {
+    public BookResponse(String kind, String id, String etag, String selfLink, VolumeInfo volumeInfo) {
         this.kind = kind;
         this.id = id;
         this.etag = etag;
         this.selfLink = selfLink;
+        this.volumeInfo = volumeInfo;
     }
     public BookResponse() {}
 
@@ -48,5 +50,13 @@ public class BookResponse {
 
     public void setSelfLink(String selfLink) {
         this.selfLink = selfLink;
+    }
+
+    public VolumeInfo getVolumeInfo() {
+        return volumeInfo;
+    }
+
+    public void setVolumeInfo(VolumeInfo volumeInfo) {
+        this.volumeInfo = volumeInfo;
     }
 }
