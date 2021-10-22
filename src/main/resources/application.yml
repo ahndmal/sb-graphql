@@ -3,6 +3,7 @@
 #    web:
 #      exposure:
 #        include: health,metrics,info
+test-var: "Some test"
 
 spring:
   graphql:
