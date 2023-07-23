@@ -17,7 +17,6 @@ import java.util.stream.Collectors;
 @Controller
 @CrossOrigin(origins = "*")
 public class BooksController {
-
     private final BookRepo bookRepo;
     private final GBooksService gBooksService;
 
